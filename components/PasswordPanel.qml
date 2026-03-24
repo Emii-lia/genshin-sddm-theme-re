@@ -5,6 +5,8 @@ Row {
     id: passwordRow
     spacing: 10
     signal accepted
+    property var password: passwordField.text
+
     Button {
         id: userIcon
         width: 44

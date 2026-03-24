@@ -6,6 +6,7 @@ Row {
     id: usernameRow
     spacing: 10
     signal activeFocusChanged
+    property var username: usernameField.text
 
     Button {
         id: userIcon

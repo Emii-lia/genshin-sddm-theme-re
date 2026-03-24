@@ -4,7 +4,7 @@ import QtGraphicalEffects 1.12
 import QtQml.Models 2.12
 
 Column {
-    property var username: usernameField.text
+    property var username: usernameField.username
 
     spacing: 30
 
