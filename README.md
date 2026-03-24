@@ -4,14 +4,11 @@
 
 # 🌌 Genshin Impact SDDM Theme
 
-[![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/nicefaa6waa/genshin-sddm-theme?labelColor=171717&color=FF570A&label=CodeRabbit+Reviews)](https://coderabbit.ai)
-[![License](https://img.shields.io/github/license/nicefaa6waa/genshin-sddm-theme?style=flat-square)](LICENSE)
-[![Stars](https://img.shields.io/github/stars/nicefaa6waa/genshin-sddm-theme?style=flat-square)](https://github.com/nicefaa6waa/genshin-sddm-theme/stargazers)
+[![License](https://img.shields.io/github/license/Emii-lia/genshin-sddm-theme-re?style=flat-square)](LICENSE)
 
-**An animated, dynamic SDDM login theme.**
-*Features time-based video backgrounds, custom soundtracks, and full HDPI support.*
+**A customised fork of the Genshin Impact SDDM theme by [nicefaa6waa](https://github.com/nicefaa6waa/genshin-sddm-theme).**
 
-[Report Bug](https://github.com/nicefaa6waa/genshin-sddm-theme/issues) · [Request Feature](https://github.com/nicefaa6waa/genshin-sddm-theme/issues)
+[Report Bug](https://github.com/Emii-lia/genshin-sddm-theme-re/issues) · [Request Feature](https://github.com/Emii-lia/genshin-sddm-theme-re/issues)
 
 </div>
 
@@ -19,7 +16,7 @@
 
 ## ✨ Features
 
-This theme is approximately **85% complete**. It automatically detects the time of day on your OS to serve specific video backgrounds and animations.
+It automatically detects the time of day on your OS to serve specific video backgrounds and animations.
 
 | Feature | Description |
 | :--- | :--- |
@@ -113,47 +110,20 @@ sddm-greeter --test-mode --theme genshin-sddm-theme
 
 ---
 
-## 🗺️ Roadmap & Status
+## Changes
 
-<details>
-<summary><b>✅ Completed Features</b></summary>
+- Custom Font (Electroharmonix) for Date, Time, and Current media title.
+- Redesigned power menu (icons + popup layout).
+- Redesigned login popup ( title + icons).
+- Updated colour palette.
+- Added new soundtracks.
 
-* **Backgrounds:** Uncompressed & Compressed videos (Morning, Sun, Night).
-* **Login Menu:** User/Pass area, Credits, styling.
-* **Power & Session Menus:** Fully functional pop-ups.
-* **Door Animation:** Logic for transparency and time-based selection.
-* **Sound:** SFX for buttons and door opening.
-* **Windows Version:** Ported to QT6 (See profile for repo).
+## License
 
-</details>
+Same as upstream.
 
-<details open>
-<summary><b>🚧 In Progress / Planned</b></summary>
+## Credits
 
-* [ ] **Custom Grub Theme**
-* [x] Background Design
-* [ ] Font/Color customization
-* [ ] Boot menu layout
-* [ ] Automated install script
-
-
-* [ ] **Installer UI:** Create a QT6 GUI for easier installation.
-* [ ] **Lock Screen:** Create a custom lock screen (swaylock/hyprlock integration).
-
-</details>
-
----
-
-## 🤝 Contributing
-
-Issues and Pull Requests are welcome!
-
-1. Check the [Wiki](https://www.google.com/search?q=https://github.com/nicefaa6waa/genshin-sddm-theme/wiki) for common issues.
-2. Fork the Project.
-3. Create your Feature Branch.
-4. Open a Pull Request.
-
-## ❤️ Credits
-
-* Based on [aczw's corner theme](https://github.com/aczw/sddm-theme-corners).
+* Original theme by [nicefaa6waa](https://github.com/nicefaa6waa/genshin-sddm-theme).
 * **Disclaimer:** All video assets belong to HoYoverse. I do not own any of them.
+

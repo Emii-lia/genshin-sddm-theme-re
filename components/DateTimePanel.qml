@@ -3,7 +3,10 @@ import QtQuick.Controls 2.12
 
 Column {
     spacing: 0
-    
+    FontLoader {
+        id: electroharmonix
+        source: Qt.resolvedUrl(config.FontFamily)
+    }
     Text {
         id: dateLabel
 
@@ -12,9 +15,10 @@ Column {
 
         renderType: Text.NativeRendering
         font.pointSize: config.DateSize
-        font.bold: config.DateIsBold == "true" ? true : false
+        font.bold: false
+        font.family: electroharmonix.name
         color: config.DateColor
-                
+
         function updateDate() {
             text = new Date().toLocaleDateString(Qt.locale(), config.DateFormat)
         }
@@ -27,7 +31,9 @@ Column {
         opacity: config.TimeOpacity
 
         renderType: Text.NativeRendering
-        font.bold: config.TimeIsBold == "true" ? true : false
+        font.bold: false
+        font.family: electroharmonix.name
+        font.pointSize: config.TimeSize
         color: config.TimeColor
 
         function updateTime() {

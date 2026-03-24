@@ -1,6 +1,6 @@
 //2
 import QtMultimedia 5.13
-import QtQuick 2.12
+import QtQuick 2.15
 import QtQuick.Window 2.12
 import QtQuick.Controls 2.12
 import "components"
@@ -18,6 +18,8 @@ Item {
         "ad_oblivione.mp3","another_hopeful_tomorrow.mp3","ballad_of_many_waters.mp3","snow_buried_tales.mp3",
         "moonlike_smile.mp3","unfinished_frescoes.mp3","glistening_shards.mp3","her_serenity.mp3",
         "the_flourishing_past.mp3","finale_of_the_snowtomb.mp3","spin_of_the_ice_crystals.mp3",
+        "song_of_innocence.mp3", "ruus_melody.mp3", "tears_of_days_past.mp3", "tales_from_the_snow_montain.mp3",
+        "lovers_oath.mp3", "whisper_of_domus_aurea.mp3"
     ]
 
 
@@ -121,7 +123,7 @@ function changeSong(direction) {
 	
     MediaPlayer {
     id: musicPlayer
-    source: "/usr/share/sddm/themes/genshin-sddm-theme/sounds/blue_dream.mp3"
+    source: "/usr/share/sddm/themes/genshin-sddm-theme/sounds/lovers_oath.mp3"
     volume: 1.0
     muted: false
     autoPlay: true

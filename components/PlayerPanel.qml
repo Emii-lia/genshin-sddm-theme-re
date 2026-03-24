@@ -26,15 +26,23 @@ Item {
     "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/glistening_shards.mp3":"Glistening Shards",
     "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/her_serenity.mp3":"The Land of Her Serenity",
     "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/blue_dream.mp3":"Blue Dream",
-
-    
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/song_of_innocence.mp3":"Song of Innocence",
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/ruus_melody.mp3":"Ruu's Melody",
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/tears_of_days_past.mp3":"Tears of Days Past",
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/tales_from_the_snow_mountain.mp3":"Tales from the Snow Mountain",
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/lovers_oath.mp3":"Lover's Oath",
+    "file:///usr/share/sddm/themes/genshin-sddm-theme/sounds/whisper_of_domus_aurea.mp3":"Whisper of Domus Aurea",
     }
 
     function currentlyPlaying() {
         var currentMusicPath = musicPlayer.source;
         return musicDictionary[currentMusicPath];
     }
-    
+
+    FontLoader {
+        id: electroharmonix
+        source: Qt.resolvedUrl(config.FontFamily)
+    }
 
     ListModel {
         id: playerModel
@@ -44,60 +52,57 @@ Item {
         ListElement { name: "Pause" }
         ListElement { name: "Next" }
     }
+    Row {
+        id: playerRow
+        spacing: 20 * scaleFactor
 
-    Button {
-        id: playerButton
+        RoundButton {
+            id: playerButton
 
-        height: 40 * scaleFactor
-        width: 200 * scaleFactor
-        hoverEnabled: true
+            height: 40 * scaleFactor
+            width: 40 * scaleFactor
+            hoverEnabled: true
+            icon.source: Qt.resolvedUrl("../icons/play.png")
+            icon.width: 36 * scaleFactor
+            icon.height: 36 * scaleFactor
 
-        contentItem: Row {
-            spacing: 5 * scaleFactor
-            Image {
-                id: iconImage
-                source: "../icons/play.png"
-                width: 40 * scaleFactor
-                height: 40 * scaleFactor
-                fillMode: Image.PreserveAspectFit
+            background: Rectangle {
+                id: playerButtonBg
+                color: config.PlayerButtonColor
+                radius: 99
+                border.width: 0
             }
 
-            Text {
-                id: playerText
-                renderType: Text.NativeRendering
-                font.pointSize: Math.max(1, (config.GeneralFontSize || 9) * scaleFactor)
-                font.bold: true
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
-                color: config.PlayerTextColor
-                text: currentlyPlaying()
-                anchors.verticalCenter: parent.verticalCenter
+            onClicked: {
+                playerPopup.visible ? playerPopup.close() : playerPopup.open()
+                playerButton.state = "pressed"
+                popupSound.play()
             }
         }
-
-        background: Rectangle {
-            id: playerButtonBg
-            color: config.PlayerButtonColor
-            radius: 40 * scaleFactor
-            border.width: 0
+        Text {
+            id: playerText
+            renderType: Text.NativeRendering
+            font.pointSize: 24
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignVCenter
+            color: config.PlayerTextColor
+            text: currentlyPlaying()
+            font.family: electroharmonix.name
+            anchors.verticalCenter: parent.verticalCenter
         }
 
-        onClicked: {
-            playerPopup.visible ? playerPopup.close() : playerPopup.open()
-            playerButton.state = "pressed"
-            popupSound.play()
-        }
     }
 
     Popup {
         id: playerPopup
 
         height: inputHeight * 2 + padding * 2
-        x: playerButton.width + playerList.spacing + 30 * scaleFactor
-        y: -height + playerButton.height - 40 * scaleFactor
+        x: 10 * scaleFactor
+        y: playerRow.height / 2 + 42 * scaleFactor
+        padding: 20 * scaleFactor
 
         background: Rectangle {
-            radius: config.CornerRadius * 4
+            radius: config.CornerRadius * 2
             color: config.PopupBgColor
         }
 
