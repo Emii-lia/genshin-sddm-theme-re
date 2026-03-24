@@ -5,7 +5,7 @@ import QtQuick.Controls 2.12
 
 Item {
     property var user: userPanel.username
-    property var password: passwordField.text
+    property var password: passwordPanel.password
     property var session: sessionPanel.session
     property var inputHeight: Screen.height * config.LoginScale * 0.25
     property var inputWidth: Screen.width * config.LoginScale
@@ -142,7 +142,7 @@ Item {
             }
 
             PasswordPanel {
-                id: passwordField
+                id: passwordPanel
                 opacity: 1
                 height: inputHeight - 6 * scaleFactor
                 width: parent.width + 20 * scaleFactor
