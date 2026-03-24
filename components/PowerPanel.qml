@@ -11,9 +11,9 @@ Item {
     ListModel {
         id: powerModel
 
-        ListElement { name: "Sleep" }
-        ListElement { name: "Restart" }
-        ListElement { name: "Shut\nDown" }
+        ListElement { icon: "../icons/power.svg" }
+        ListElement { icon: "../icons/restart.svg" }
+        ListElement { icon: "../icons/sleep.svg" }
     }
 
     Button {
@@ -78,7 +78,7 @@ Item {
     Popup {
         id: powerPopup
 
-        height: inputHeight * 2.2 + padding * 2
+        height: inputHeight * 1.2 + padding
         x: powerButton.width + powerList.spacing + 30 * scaleFactor
         y: -height + powerButton.height 
         padding: 15 * scaleFactor
@@ -100,80 +100,29 @@ Item {
             delegate: ItemDelegate {
                 id: powerEntry
 
-                height: inputHeight * 2.2
-                width: inputHeight * 2.2
-                display: AbstractButton.TextUnderIcon
-               
-                contentItem: Item {
-                    Image {
-                        id: powerIcon
-                    
-                        anchors.centerIn: parent
-                        source: index == 0 ? Qt.resolvedUrl("../icons/sleep.svg") : (index == 1 ? Qt.resolvedUrl("../icons/restart.svg") : Qt.resolvedUrl("../icons/power.svg"))
-                        sourceSize: Qt.size(powerEntry.width * 0.5, powerEntry.height * 0.5)
-                    }
+                height: inputHeight
+                width: inputHeight
 
-                    ColorOverlay {
-                        id: iconOverlay
+                icon.source: index == 0? Qt.resolvedUrl("../icons/power.png") :
+                (index == 1 ? Qt.resolvedUrl("../icons/restart.png") : Qt.resolvedUrl("../icons/sleep.png"))
+                icon.color: config.PowerIconColor
+                icon.width: height * 0.8
+                icon.height: height * 0.8
 
-                        anchors.fill: powerIcon
-                        source: powerIcon
-                        color: config.PopupBgColor
-                    }
-
-                    Text {
-                        id: powerText
-
-                        anchors.centerIn: parent
-                        renderType: Text.NativeRendering
-                        font.pointSize: config.GeneralFontSize
-                        font.bold: true
-                        horizontalAlignment: Text.AlignHCenter
-                        color: config.PopupBgColor
-                        text: name
-                        opacity: 0
-                    }
-                }
-                
                 background: Rectangle {
-                    id: powerEntryBg
-
-                    color: config.PopupHighlightColor
                     radius: config.CornerRadius
+                    color: powerEntry.hovered
+                        ? Qt.darker(config.PopupBgColor, 1.1)
+                        : "transparent"
                 }
 
-                states: [
-                    State {
-                        name: "hovered"
-                        when: powerEntry.hovered
-                        PropertyChanges {
-                            target: powerEntryBg
-                            color: Qt.darker(config.PopupHighlightColor, 1.2)
-                        }
-                        PropertyChanges {
-                            target: iconOverlay
-                            color: Qt.darker(config.PopupHighlightColor, 1.2)
-                        }
-                        PropertyChanges {
-                            target: powerText
-                            opacity: 1
-                        }
-                    }
-                ]
+                display: AbstractButton.IconOnly
 
-                transitions: Transition {
-                    PropertyAnimation {
-                        properties: "color, opacity"
-                        duration: 150
-                    }
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        powerPopup.close()
-                        index == 0 ? sddm.suspend() : (index == 1 ? sddm.reboot() : sddm.powerOff())
-                    }
+                onClicked: {
+                    powerPopup.close()
+                        index == 0 ? sddm.powerOff()
+                        : index == 1 ? sddm.reboot()
+                            : sddm.suspend()
                 }
             }
         }
