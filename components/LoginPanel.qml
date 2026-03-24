@@ -93,41 +93,33 @@ Item {
             id: xbutton
             anchors.top: parent.top
             anchors.right: parent.right
-            anchors.topMargin: 15 * scaleFactor
-            anchors.rightMargin: 20 * scaleFactor
-            width: 30 * scaleFactor
+            anchors.topMargin: 36 * scaleFactor
+            anchors.rightMargin: 28 * scaleFactor
+            width: 44 * scaleFactor
             height: width
             onClicked: {
                 root.state = "first"
                 closeSound.play()
             }
-            text: qsTr("X")
-
+            icon.source: Qt.resolvedUrl("../icons/back.png")
+            icon.height: parent.height
+            icon.width: parent.height
+            icon.color: config.LoginTitleColor
             background: Rectangle {
-                color: "white" 
+                color: "white"
             }
-            }
-    	
-        Text {
-            anchors.top: parent.top
-		    anchors.topMargin: 385 * scaleFactor
-		    anchors.right: parent.right	
-		    anchors.rightMargin: 350 * scaleFactor
-            text: "nicefaa6waa"
-            font.pixelSize: 15 * scaleFactor 
-            color: "black"     
-		    z:3
-            }
-        Text {
-            anchors.top: parent.top
-		    anchors.topMargin:385 * scaleFactor
-		    anchors.right: parent.right 
-		    anchors.rightMargin: 80 * scaleFactor
-            text: "ibrahim-mammadli"
-            font.pixelSize: 15 * scaleFactor 
-            color: "black"   
-		    z:3
-            }
+        }
+    	Label {
+            id: titleLabel
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.top : parent.top
+            anchors.topMargin: 40 * scaleFactor
+            font.pointSize: config.LoginTitleSize * scaleFactor
+            color: config.LoginTitleColor
+            renderType: Text.QtRendering
+            text: "Genshin Impact"
+            font.family: config.FontFamily
+        }
 
         Column {
             width: inputWidth + 10 * scaleFactor
@@ -136,23 +128,23 @@ Item {
             anchors.topMargin: 120 * scaleFactor
             anchors.rightMargin: 82 * scaleFactor
             visible: root.state === "login"
-            spacing: 10 * scaleFactor
+            spacing: 24 * scaleFactor
 
             UserPanel {
                 id: userPanel
-                height: inputHeight - 5 * scaleFactor
+                height: inputHeight - 6 * scaleFactor
                 width: parent.width + 10 * scaleFactor
                 onActiveFocusChanged: {
                     if (activeFocus) {
                         inputFocusSound.play()  
                     }
-                    }
                 }
+            }
 
             PasswordPanel {
                 id: passwordField
                 opacity: 1
-                height: inputHeight - 5 * scaleFactor
+                height: inputHeight - 6 * scaleFactor
                 width: parent.width + 20 * scaleFactor
                 onActiveFocusChanged: {
                     if (activeFocus) {
@@ -176,9 +168,9 @@ Item {
 
 			
 
-                enabled: user != "" && password != "" ? true : false
+                enabled: user !== "" && password !== ""
                 hoverEnabled: true
-                text: "Login!!"
+                text: "Login"
 
                 contentItem: Text {
                     id: buttonText
@@ -197,7 +189,7 @@ Item {
                 background: Rectangle {
                     id: buttonBackground
                     color: config.LoginButtonBgColor
-                    opacity: 0.5
+                    opacity: 0.7
                         radius: config.CornerRadius
                     }
     
