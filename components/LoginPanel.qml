@@ -11,7 +11,10 @@ Item {
     property var inputWidth: Screen.width * config.LoginScale
     readonly property real scaleFactor: (Screen.height > 0 ? Screen.height : 1080) / 1080
 
-
+    FontLoader {
+        id: electroharmonix
+        source: Qt.resolvedUrl(config.FontFamily)
+    }
     Column {
         spacing: 8
         opacity: 0
@@ -118,7 +121,7 @@ Item {
             color: config.LoginTitleColor
             renderType: Text.QtRendering
             text: "Genshin Impact"
-            font.family: config.FontFamily
+            font.family: electroharmonix.name
         }
 
         Column {
