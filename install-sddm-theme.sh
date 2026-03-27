@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="genshin-sddm-theme"
+NAME="genshin-sddm-theme-re"
 DIR="/usr/share/sddm/themes/$NAME/"
 CFG="/etc/sddm.conf"
 
