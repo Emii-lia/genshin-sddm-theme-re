@@ -54,8 +54,8 @@ Please install the required packages for your distribution before proceeding.
 The script will auto-detect your OS, install dependencies, download the heavy video files, and configure SDDM.
 
 ```bash
-git clone [https://github.com/nicefaa6waa/genshin-sddm-theme.git](https://github.com/nicefaa6waa/genshin-sddm-theme.git)
-cd genshin-sddm-theme
+git clone [https://github.com/Emii-lia/genshin-sddm-theme-re.git](https://github.com/Emii-lia/genshin-sddm-theme-re.git)
+cd genshin-sddm-theme-re
 sudo ./install-sddm-theme.sh
 
 ```
@@ -67,28 +67,28 @@ sudo ./install-sddm-theme.sh
 
 1. **Clone the repository:**
 ```bash
-git clone [https://github.com/nicefaa6waa/genshin-sddm-theme.git](https://github.com/nicefaa6waa/genshin-sddm-theme.git)
+git clone [https://github.com/Emii-lia/genshin-sddm-theme-re.git](https://github.com/Emii-lia/genshin-sddm-theme-re.git)
 
 ```
 
 
 2. **Copy to themes directory:**
 ```bash
-sudo cp -r genshin-sddm-theme /usr/share/sddm/themes/
+sudo cp -r genshin-sddm-theme-re /usr/share/sddm/themes/
 
 ```
 
 
 3. **Download Background Videos:**
 * Download the video assets from [Google Drive](https://drive.google.com/drive/folders/1Yz2GxV8uvZJM16YSbE2yPRMT58H5o0Bs?usp=drive_link).
-* Unzip the contents into `/usr/share/sddm/themes/genshin-sddm-theme/backgrounds/`.
+* Unzip the contents into `/usr/share/sddm/themes/genshin-sddm-theme-re/backgrounds/`.
 
 
 4. **Enable the Theme:**
 Edit `/etc/sddm.conf` (or `/etc/sddm.conf.d/kde_settings.conf`):
 ```ini
 [Theme]
-Current=genshin-sddm-theme
+Current=genshin-sddm-theme-re
 
 ```
 
@@ -104,7 +104,7 @@ Current=genshin-sddm-theme
 Run the following command to preview the theme in a window:
 
 ```bash
-sddm-greeter --test-mode --theme genshin-sddm-theme
+sddm-greeter --test-mode --theme genshin-sddm-theme-re
 
 ```
 
